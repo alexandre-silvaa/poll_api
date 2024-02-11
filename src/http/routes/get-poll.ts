@@ -4,10 +4,10 @@ import { FastifyInstance } from "fastify";
 
 export async function getPoll(app: FastifyInstance) {
   app.get("/polls/:pollId", async (response, reply) => {
-    const getPollByParams = z.object({
+    const getPollParams = z.object({
       pollId: z.string().uuid(),
     });
-    const { pollId } = getPollByParams.parse(response.params);
+    const { pollId } = getPollParams.parse(response.params);
 
     const poll = await prisma.poll.findUniqueOrThrow({
       where: {
