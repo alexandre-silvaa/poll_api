@@ -26,7 +26,6 @@ export async function createPoll(app: FastifyInstance) {
           select: {
             id: true,
             title: true,
-            createdAt: true,
           },
         },
       },
